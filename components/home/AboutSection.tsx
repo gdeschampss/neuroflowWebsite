@@ -11,7 +11,7 @@ export const AboutSection = () => {
     <section className="py-20 bg-gray-50/50 border-y border-gray-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Visual Element */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -30,7 +30,7 @@ export const AboutSection = () => {
               <p className="text-sm text-gray-600 leading-relaxed mb-6">
                 Muitas empresas vendem "transformação digital" em apresentações de PDF. Nós construímos sistemas de IA funcionais que integram diretamente com seu WhatsApp, CRM e site.
               </p>
-              
+
               <div className="p-4 rounded-2xl bg-emerald-50/80 border border-emerald-100 flex items-center gap-3">
                 <ShieldCheck className="w-6 h-6 text-[#03AD97] shrink-0" />
                 <div className="text-xs text-gray-700 font-medium">

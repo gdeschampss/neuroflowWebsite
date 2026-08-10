@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Star, StarHalf } from 'lucide-react';
+import { GridDivider } from '@/components/ui/GridDivider';
 
 export const ClientMarquee = () => {
   const row1Testimonials = [
@@ -78,76 +79,102 @@ export const ClientMarquee = () => {
         ))}
         {hasHalf && <StarHalf className="w-3.5 h-3.5 fill-current" />}
         {[...Array(emptyCount)].map((_, i) => (
-          <Star key={`empty-${i}`} className="w-3.5 h-3.5 text-gray-300" />
+          <Star key={`empty-${i}`} className="w-3.5 h-3.5 text-slate-300" />
         ))}
       </div>
     );
   };
 
   return (
-    <section className="py-16 bg-gray-50/70 border-b border-gray-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
-        <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2 font-sans">
-          DEPOIMENTOS & PROVA SOCIAL
-        </span>
-        <h3 className="text-2xl sm:text-4xl font-extrabold text-[#1F1F1F]">
-          O que dizem os clientes da NeuroFlow
-        </h3>
-      </div>
+    <>
+      <GridDivider label="Depoimentos" />
 
-      <div className="space-y-6">
-        {/* Row 1: Scroll Right to Left */}
-        <div className="relative w-full flex overflow-x-hidden">
-          <div className="flex space-x-5 animate-marquee py-2 whitespace-nowrap">
-            {row1Testimonials.concat(row1Testimonials).map((item, idx) => (
-              <div
-                key={idx}
-                className="inline-block w-[300px] sm:w-[360px] bg-white border border-gray-200/80 rounded-2xl p-5 shrink-0 shadow-xs hover:border-[#03AD97]/40 transition-all whitespace-normal"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <h4 className="text-sm font-bold text-[#1F1F1F] leading-snug">{item.name}</h4>
-                    <p className="text-xs text-gray-400 font-sans">{item.handle} • <span className="text-gray-500 font-medium">{item.company}</span></p>
-                  </div>
-                  {renderStars(item.rating)}
-                </div>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans line-clamp-3">
-                  "{item.quote}"
-                </p>
-              </div>
-            ))}
+      <section className="py-14 bg-slate-50/60 relative overflow-hidden">
+        {/* Constrained Container - Aligned with the body central column */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <span className="text-xs font-bold text-[#03AD97] uppercase tracking-widest block mb-2 font-mono">
+              DEPOIMENTOS & PROVA SOCIAL
+            </span>
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-[#1F1F1F] tracking-tight">
+              O que dizem os clientes da NeuroFlow
+            </h3>
           </div>
-        </div>
 
-        {/* Row 2: Scroll Left to Right */}
-        <div className="relative w-full flex overflow-x-hidden">
+          {/* Marquee Wrapper - Strictly limited to max-w-7xl with soft edge blur fade */}
           <div
-            className="flex space-x-5 py-2 whitespace-nowrap"
+            className="relative w-full overflow-hidden py-2"
             style={{
-              animation: 'marqueeReverse 38s linear infinite',
-              width: 'max-content'
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
             }}
           >
-            {row2Testimonials.concat(row2Testimonials).map((item, idx) => (
-              <div
-                key={idx}
-                className="inline-block w-[300px] sm:w-[360px] bg-white border border-gray-200/80 rounded-2xl p-5 shrink-0 shadow-xs hover:border-[#03AD97]/40 transition-all whitespace-normal"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <h4 className="text-sm font-bold text-[#1F1F1F] leading-snug">{item.name}</h4>
-                    <p className="text-xs text-gray-400 font-sans">{item.handle} • <span className="text-gray-500 font-medium">{item.company}</span></p>
-                  </div>
-                  {renderStars(item.rating)}
+            {/* Left Edge Gradient Fade */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-slate-50 via-slate-50/60 to-transparent z-10 pointer-events-none" />
+            
+            {/* Right Edge Gradient Fade */}
+            <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-slate-50 via-slate-50/60 to-transparent z-10 pointer-events-none" />
+
+            <div className="space-y-4">
+              {/* Row 1: Scroll Right to Left */}
+              <div className="relative w-full flex overflow-hidden">
+                <div className="flex space-x-5 animate-marquee py-1 whitespace-nowrap">
+                  {row1Testimonials.concat(row1Testimonials).map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="inline-block w-[300px] sm:w-[360px] bg-white border border-slate-200/80 rounded-2xl p-5 shrink-0 shadow-xs hover:border-[#03AD97]/40 transition-all whitespace-normal"
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <h4 className="text-sm font-bold text-[#1F1F1F] leading-snug">{item.name}</h4>
+                          <p className="text-xs text-gray-400 font-sans">{item.handle} • <span className="text-gray-500 font-medium">{item.company}</span></p>
+                        </div>
+                        {renderStars(item.rating)}
+                      </div>
+                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans line-clamp-3">
+                        "{item.quote}"
+                      </p>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans line-clamp-3">
-                  "{item.quote}"
-                </p>
               </div>
-            ))}
+
+              {/* Row 2: Scroll Left to Right */}
+              <div className="relative w-full flex overflow-hidden">
+                <div
+                  className="flex space-x-5 py-1 whitespace-nowrap"
+                  style={{
+                    animation: 'marqueeReverse 38s linear infinite',
+                    width: 'max-content'
+                  }}
+                >
+                  {row2Testimonials.concat(row2Testimonials).map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="inline-block w-[300px] sm:w-[360px] bg-white border border-slate-200/80 rounded-2xl p-5 shrink-0 shadow-xs hover:border-[#03AD97]/40 transition-all whitespace-normal"
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <h4 className="text-sm font-bold text-[#1F1F1F] leading-snug">{item.name}</h4>
+                          <p className="text-xs text-gray-400 font-sans">{item.handle} • <span className="text-gray-500 font-medium">{item.company}</span></p>
+                        </div>
+                        {renderStars(item.rating)}
+                      </div>
+                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans line-clamp-3">
+                        "{item.quote}"
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
-      </div>
+      </section>
 
       <style jsx global>{`
         @keyframes marqueeReverse {
@@ -155,6 +182,6 @@ export const ClientMarquee = () => {
           100% { transform: translateX(0%); }
         }
       `}</style>
-    </section>
+    </>
   );
 };

@@ -47,7 +47,7 @@ export const HowItWorks = () => {
   return (
     <section id="implementacao" className="py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-xs font-semibold text-[#03AD97] uppercase tracking-wider mb-4 shadow-2xs">
@@ -78,14 +78,13 @@ export const HowItWorks = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.12 }}
-                  className={`relative flex flex-col lg:flex-row items-center ${
-                    isEven ? 'lg:flex-row-reverse' : ''
-                  }`}
+                  className={`relative flex flex-col lg:flex-row items-center ${isEven ? 'lg:flex-row-reverse' : ''
+                    }`}
                 >
                   {/* Content Card Side */}
                   <div className="w-full lg:w-1/2 px-4 lg:px-8">
                     <div className="bg-gray-50/90 border border-gray-200/80 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl hover:border-[#03AD97]/40 transition-all duration-300 group relative">
-                      
+
                       <div className="flex items-center justify-between mb-4">
                         <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-[#03AD97] border border-emerald-200/60">
                           {step.badge}
@@ -101,7 +100,7 @@ export const HowItWorks = () => {
                       <p className="text-xs font-semibold text-gray-400 mt-1 uppercase tracking-wider">
                         {step.subtitle}
                       </p>
-                      
+
                       <p className="text-sm sm:text-base text-gray-600 mt-4 leading-relaxed">
                         {step.description}
                       </p>
