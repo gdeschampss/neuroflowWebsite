@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --text-primary: #1F1F1F;
+    --text-secondary: rgba(31, 31, 31, 0.75);
+    --brand-primary: #03AD97;
+    --brand-primary-hover: #028F7C;
+    --brand-primary-light: rgba(3, 173, 151, 0.08);
+    --border-subtle: #E5E7EB;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-serif-accent {
+  font-family: var(--font-serif-accent), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Glassmorphism subtle helper */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+}
+
+/* AbacatePay Inspired Card Texture & Layers */
+.card-abacate-texture {
+  background-color: #F8FAFC;
+  background-image: radial-gradient(rgba(3, 173, 151, 0.12) 1.2px, transparent 1.2px);
+  background-size: 11px 11px;
+}
+
+.card-white-shadows {
+  box-shadow: 
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.04),
+    0 10px 30px -5px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* Hero Section H1 Text Illumination Animation */
+@keyframes textGlow {
+  0%, 100% {
+    color: #03AD97;
+    text-shadow: 0 0 10px rgba(3, 173, 151, 0.3), 0 0 20px rgba(3, 173, 151, 0.15);
+    filter: drop-shadow(0 0 2px rgba(3, 173, 151, 0.4));
+  }
+  50% {
+    color: #02c3aa;
+    text-shadow: 0 0 18px rgba(3, 173, 151, 0.7), 0 0 35px rgba(3, 173, 151, 0.4), 0 0 50px rgba(3, 173, 151, 0.2);
+    filter: drop-shadow(0 0 8px rgba(3, 173, 151, 0.6));
+  }
+}
+
+.animate-text-glow {
+  display: inline-block;
+  animation: textGlow 3.5s ease-in-out infinite;
+}
+
