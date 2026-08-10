@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowLeft, ArrowDown, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowDown } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -63,14 +63,14 @@ export const BlogHero = () => {
   return (
     <div ref={containerRef} className="relative w-full h-screen bg-white text-[#1F1F1F] flex flex-col justify-between overflow-hidden">
 
-      {/* Minimal Top Nav Bar (Requirement Section 14.1) */}
-      <div className="relative z-30 max-w-7xl w-full mx-auto px-6 py-6 flex items-center justify-between">
-        {/* Left Button: Back to Home */}
+      {/* Top Nav Bar */}
+      <div className="relative z-50 max-w-7xl w-full mx-auto px-6 py-6 flex items-center justify-between pointer-events-auto">
+        {/* Left Button: Functional Back to Home */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-gray-200 shadow-sm text-sm font-bold text-[#1F1F1F] hover:text-[#03AD97] hover:border-[#03AD97] transition-all"
+          className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-white/95 border border-slate-200 shadow-sm text-sm font-bold text-[#1F1F1F] hover:text-[#03AD97] hover:border-[#03AD97] hover:shadow-md transition-all cursor-pointer relative z-50"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4 text-[#03AD97]" />
           <span>Voltar para Home</span>
         </Link>
 
@@ -78,14 +78,14 @@ export const BlogHero = () => {
         <a
           href="#posts"
           onClick={scrollToPosts}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#03AD97] text-white text-sm font-bold shadow-md hover:bg-[#028F7C] transition-all"
+          className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-[#03AD97] text-white text-sm font-bold shadow-md hover:bg-[#028F7C] transition-all cursor-pointer relative z-50"
         >
           <span>Ir Direto aos Artigos</span>
           <ArrowDown className="w-4 h-4" />
         </a>
       </div>
 
-      {/* Hero Content & Text Layout (Alinhado à Esquerda & Centralizado Verticalmente) */}
+      {/* Hero Content & Text Layout */}
       <div className="relative z-20 flex-1 flex flex-col items-start justify-center max-w-7xl w-full mx-auto px-6 sm:px-12 text-left">
 
         <div className="relative min-h-[220px] flex items-center justify-start w-full max-w-3xl">
@@ -94,7 +94,7 @@ export const BlogHero = () => {
             ref={stage1Ref}
             className="absolute text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-[#1F1F1F] text-left"
           >
-            Inteligência Artificial aplicada a <span className="font-serif-accent text-[#03AD97] font-normal">negócios reais</span>.
+            Bem-vindo ao <span className="font-serif-accent text-[#03AD97] font-normal">Blog Posts</span>.
           </h1>
 
           {/* Stage 2 H1 Text (Revealed via GSAP ScrollTrigger) */}
@@ -102,13 +102,13 @@ export const BlogHero = () => {
             ref={stage2Ref}
             className="absolute text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-[#1F1F1F] opacity-0 text-left"
           >
-            Bastidores, casos práticos e <span className="font-serif-accent text-[#03AD97] font-normal">análises de ROI</span> sem hype.
+            Atualizações, dicas, notícias e <span className="font-serif-accent text-[#03AD97] font-normal">muito mais...</span>
           </h1>
         </div>
 
         {/* Scroll Indicator Subtext */}
-        <div className="mt-12 flex items-center gap-3 text-xs font-semibold text-gray-500">
-          <div className="w-5 h-8 rounded-full border-2 border-gray-400 flex items-start justify-center p-1">
+        <div className="mt-12 flex items-center gap-3 text-xs font-semibold text-gray-700">
+          <div className="w-5 h-8 rounded-full border-2 border-[#03AD97]/60 flex items-start justify-center p-1 bg-white/80">
             <div className="w-1.5 h-1.5 rounded-full bg-[#03AD97] animate-bounce" />
           </div>
           <span>Role para continuar lendo a narrativa</span>
@@ -116,19 +116,19 @@ export const BlogHero = () => {
 
       </div>
 
-      {/* Hero Backdrop Asset Overlay - 100% Aparente com degradê suave à esquerda */}
-      <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
+      {/* Hero Background Image - Mais aparente com efeito de blur suave */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
           src="/images/blog-hero-section.webp"
-          alt="Blog Hero Visual"
+          alt="Blog Hero Background"
           fill
-          className="object-cover object-right md:object-center"
+          className="object-cover object-right md:object-center opacity-85 blur-[3px] scale-105"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent sm:to-transparent" />
+        {/* Soft gradient overlay for high contrast text readability while keeping image visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-white/20" />
       </div>
 
     </div>
   );
 };
-
