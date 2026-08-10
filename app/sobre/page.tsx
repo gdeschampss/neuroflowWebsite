@@ -5,26 +5,62 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button, FORM_URL } from '@/components/ui/Button';
 import { SerifAccent } from '@/components/ui/SerifAccent';
-import { ShieldCheck, Target, Zap, Bot, Globe, CheckCircle2, Award } from 'lucide-react';
+import { ShieldCheck, Target, Zap, Bot, Globe, CheckCircle2, Instagram } from 'lucide-react';
 
 export default function SobrePage() {
   return (
     <div className="bg-white text-[#1F1F1F]">
-      
+
       {/* Hero Section */}
-      <section className="py-20 bg-gray-50/50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-[#03AD97] text-xs font-bold mb-6 border border-emerald-100">
-            SOBRE A NEUROFLOW
+      <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-7 flex flex-col items-start">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-[#03AD97] text-xs font-bold mb-6 border border-emerald-100">
+                SOBRE A NEUROFLOW
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                Inteligência operacional para quem precisa de <SerifAccent>resultado</SerifAccent>.
+              </h1>
+
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                Nossa missão é simples: acabar com a enrolação no mercado de inteligência artificial. Criamos soluções que entram na linha de frente da sua empresa para vender e atender 24h por dia.
+              </p>
+
+              <div className="flex items-center gap-4">
+                <Button href={FORM_URL} size="lg" showArrow>
+                  Falar com a Equipe
+                </Button>
+              </div>
+            </div>
+
+            {/* Instagram Social Proof Asset Card */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full max-w-[380px] bg-white rounded-3xl p-4 border border-gray-200 shadow-xl overflow-hidden group">
+                <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100 mb-3">
+                  <div className="flex items-center gap-2">
+                    <Instagram className="w-4 h-4 text-pink-600" />
+                    <span className="text-xs font-bold text-gray-800">@neuroflow.ai</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#03AD97] bg-emerald-50 px-2 py-0.5 rounded-full">
+                    Oficial
+                  </span>
+                </div>
+
+                <div className="rounded-2xl overflow-hidden relative aspect-square border border-gray-100">
+                  <Image
+                    src="/images/instagram-showcase.webp"
+                    alt="NeuroFlow Instagram Presença Digital"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            Inteligência operacional para quem precisa de <SerifAccent>resultado</SerifAccent>.
-          </h1>
-
-          <p className="text-lg text-gray-600 leading-relaxed mb-8">
-            Nossa missão é simples: acabar com a enrolação no mercado de inteligência artificial. Criamos soluções que entram na linha de frente da sua empresa para vender e atender 24h por dia.
-          </p>
         </div>
       </section>
 

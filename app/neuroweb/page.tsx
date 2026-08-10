@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button, FORM_URL } from '@/components/ui/Button';
 import { SerifAccent } from '@/components/ui/SerifAccent';
-import { Globe, Gauge, Code2, Smartphone, ShieldCheck, CheckCircle2, ArrowRight, Zap } from 'lucide-react';
+import { Globe, Gauge, Code2, Smartphone, ShieldCheck, CheckCircle2, ArrowRight, Zap, Play } from 'lucide-react';
 
 export default function NeuroWebPage() {
   const steps = [
@@ -20,13 +20,13 @@ export default function NeuroWebPage() {
     <div className="bg-white text-[#1F1F1F]">
       
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100">
+      <section className="relative pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-7 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-900 text-white text-xs font-bold mb-6">
-                <Globe className="w-4 h-4 text-[#03AD97]" />
+            <div className="lg:col-span-6 flex flex-col items-start">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#03AD97]/10 border border-[#03AD97]/30 text-[#03AD97] text-xs font-bold mb-6">
+                <Globe className="w-4 h-4" />
                 NEUROWEB — DESENVOLVIMENTO WEB HIGH-END
               </div>
 
@@ -59,63 +59,30 @@ export default function NeuroWebPage() {
               </div>
             </div>
 
-            {/* Right Speed Audit Card */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-[380px] bg-white p-8 rounded-3xl shadow-xl border border-gray-200">
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
-                  <div className="flex items-center gap-2 font-bold text-sm text-[#1F1F1F]">
-                    <Gauge className="w-5 h-5 text-[#03AD97]" />
-                    Google Core Web Vitals
+            {/* Video GIF Showcase Frame */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="w-full bg-slate-900 p-3 sm:p-4 rounded-3xl shadow-2xl border border-slate-800 relative overflow-hidden group">
+                <div className="flex items-center justify-between px-3 py-2 border-b border-slate-800 mb-3 text-xs text-slate-400">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                    <span className="ml-2 font-mono text-[11px]">neuroweb-showcase.mp4</span>
                   </div>
-                  <span className="px-2.5 py-0.5 text-xs font-bold bg-emerald-100 text-[#03AD97] rounded-full">
-                    Aprovado
+                  <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/30">
+                    High Performance
                   </span>
                 </div>
 
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1">
-                      <span>Performance Geral</span>
-                      <span className="text-[#03AD97] font-bold">100 / 100</span>
-                    </div>
-                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-[#03AD97] w-[100%]" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1">
-                      <span>Acessibilidade</span>
-                      <span className="text-[#03AD97] font-bold">100 / 100</span>
-                    </div>
-                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-[#03AD97] w-[100%]" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1">
-                      <span>Melhores Práticas</span>
-                      <span className="text-[#03AD97] font-bold">100 / 100</span>
-                    </div>
-                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-[#03AD97] w-[100%]" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1">
-                      <span>SEO Técnico</span>
-                      <span className="text-[#03AD97] font-bold">100 / 100</span>
-                    </div>
-                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-[#03AD97] w-[100%]" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3 bg-gray-50 rounded-xl text-center text-xs text-gray-500 font-medium">
-                  Carregamento estimado em menos de 0.4s no 4G
+                <div className="relative rounded-2xl overflow-hidden aspect-video bg-slate-950">
+                  <video
+                    src="/videos/neuroweb-showcase.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -153,12 +120,12 @@ export default function NeuroWebPage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold mb-6">
             Sua empresa merece um site de alto padrão.
           </h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+          <p className="text-slate-300 mb-8 max-w-xl mx-auto">
             Receba um orçamento detalhado e uma análise da sua presença digital atual sem compromisso.
           </p>
           <Button href={FORM_URL} size="lg" showArrow>

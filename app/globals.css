@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
+
+.font-logo {
+  font-family: 'Elms Sans', var(--font-inter), sans-serif;
+}
 
 @layer base {
   :root {
@@ -27,8 +32,13 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -57,7 +67,7 @@
 }
 
 .card-white-shadows {
-  box-shadow: 
+  box-shadow:
     inset 0 2px 4px 0 rgba(255, 255, 255, 0.95),
     inset 0 -1px 2px 0 rgba(0, 0, 0, 0.04),
     0 10px 30px -5px rgba(0, 0, 0, 0.05),
@@ -66,11 +76,14 @@
 
 /* Hero Section H1 Text Illumination Animation */
 @keyframes textGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     color: #03AD97;
     text-shadow: 0 0 10px rgba(3, 173, 151, 0.3), 0 0 20px rgba(3, 173, 151, 0.15);
     filter: drop-shadow(0 0 2px rgba(3, 173, 151, 0.4));
   }
+
   50% {
     color: #02c3aa;
     text-shadow: 0 0 18px rgba(3, 173, 151, 0.7), 0 0 35px rgba(3, 173, 151, 0.4), 0 0 50px rgba(3, 173, 151, 0.2);
@@ -82,4 +95,3 @@
   display: inline-block;
   animation: textGlow 3.5s ease-in-out infinite;
 }
-

@@ -17,6 +17,8 @@ const imageMappings = [
   { src: 'componetsImg/logosLinkksNeuroflow.png', dest: 'public/images/logos-neuroflow.webp' },
   { src: 'componetsImg/logosLinkksNeuroweb.png', dest: 'public/images/logos-neuroweb.webp' },
   { src: 'componetsImg/whatssAppComponent.png', dest: 'public/images/whatsapp-component.webp' },
+  { src: 'componetsImg/neuroflowInstagram.jpeg', dest: 'public/images/instagram-showcase.webp' },
+  { src: 'componetsImg/neuroWebcomponent.png', dest: 'public/images/neuroweb-component.webp' },
 ];
 
 const rootDir = process.cwd();

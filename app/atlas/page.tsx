@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button, FORM_URL, WHATSAPP_URL } from '@/components/ui/Button';
 import { SerifAccent } from '@/components/ui/SerifAccent';
+import { AnimatedBeamAtlas } from '@/components/atlas/AnimatedBeamAtlas';
 import { Bot, MessageCircle, Clock, ShieldCheck, Zap, CheckCircle2, UserCheck, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function AtlasPage() {
@@ -33,14 +34,18 @@ export default function AtlasPage() {
 
   return (
     <div className="bg-white text-[#1F1F1F]">
-      
+
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 bg-gradient-to-b from-emerald-50/50 to-white">
+      <section className="relative pt-32 pb-20 bg-gradient-to-b from-emerald-50/50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Content */}
-            <div className="lg:col-span-7 flex flex-col items-start pt-12">
+            <div className="lg:col-span-7 flex flex-col items-start pt-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-[#03AD97] text-xs font-bold mb-6 border border-emerald-100">
+                <Bot className="w-4 h-4" /> ATLAS — SDR INTELIGENTE VIA WHATSAPP
+              </div>
+
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
                 Seu melhor vendedor atende em <SerifAccent>segundos</SerifAccent>, 24h por dia.
               </h1>
@@ -71,14 +76,12 @@ export default function AtlasPage() {
             </div>
 
             {/* Right Chat Mockup */}
-            <div className="lg:col-span-5 flex justify-center pt-8">
+            <div className="lg:col-span-5 flex justify-center">
               <div className="w-full max-w-[380px] bg-gray-900 rounded-[36px] p-4 shadow-2xl border-4 border-gray-800">
-                {/* Phone Top Notch */}
                 <div className="w-32 h-4 bg-gray-800 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <div className="w-3 h-3 rounded-full bg-gray-700" />
                 </div>
 
-                {/* WhatsApp Chat Header */}
                 <div className="bg-[#075E54] text-white p-3 rounded-t-2xl flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-[#03AD97] flex items-center justify-center font-bold text-sm">
                     A
@@ -92,49 +95,42 @@ export default function AtlasPage() {
                   </div>
                 </div>
 
-                {/* Scenario Selector Tabs */}
                 <div className="flex gap-1 p-2 bg-gray-800 text-[11px] font-medium text-gray-300">
                   <button
                     onClick={() => setActiveTab('qualification')}
-                    className={`flex-1 py-1 rounded transition-colors ${
-                      activeTab === 'qualification' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
-                    }`}
+                    className={`flex-1 py-1 rounded transition-colors ${activeTab === 'qualification' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
+                      }`}
                   >
                     Qualificação
                   </button>
                   <button
                     onClick={() => setActiveTab('support')}
-                    className={`flex-1 py-1 rounded transition-colors ${
-                      activeTab === 'support' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
-                    }`}
+                    className={`flex-1 py-1 rounded transition-colors ${activeTab === 'support' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
+                      }`}
                   >
                     Atendimento
                   </button>
                   <button
                     onClick={() => setActiveTab('booking')}
-                    className={`flex-1 py-1 rounded transition-colors ${
-                      activeTab === 'booking' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
-                    }`}
+                    className={`flex-1 py-1 rounded transition-colors ${activeTab === 'booking' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
+                      }`}
                   >
                     Agendamento
                   </button>
                 </div>
 
-                {/* Chat Messages Body */}
                 <div className="bg-[#E5DDD5] p-3 h-[320px] overflow-y-auto space-y-3 font-sans text-xs">
                   {chatScenarios[activeTab].map((msg, i) => (
                     <div
                       key={i}
-                      className={`flex flex-col max-w-[85%] ${
-                        msg.sender === 'user' ? 'ml-auto items-end' : 'mr-auto items-start'
-                      }`}
+                      className={`flex flex-col max-w-[85%] ${msg.sender === 'user' ? 'ml-auto items-end' : 'mr-auto items-start'
+                        }`}
                     >
                       <div
-                        className={`p-2.5 rounded-2xl shadow-sm text-gray-800 ${
-                          msg.sender === 'user'
+                        className={`p-2.5 rounded-2xl shadow-sm text-gray-800 ${msg.sender === 'user'
                             ? 'bg-[#DCF8C6] rounded-tr-none'
                             : 'bg-white rounded-tl-none border border-gray-200'
-                        }`}
+                          }`}
                       >
                         {msg.text}
                         <span className="block text-[9px] text-gray-400 text-right mt-1">
@@ -145,7 +141,6 @@ export default function AtlasPage() {
                   ))}
                 </div>
 
-                {/* WhatsApp Bottom Input */}
                 <div className="bg-gray-800 p-2 rounded-b-2xl flex items-center gap-2 text-xs text-gray-400">
                   <div className="flex-1 bg-gray-700 py-1.5 px-3 rounded-full text-gray-300">
                     Digite uma mensagem...
@@ -161,7 +156,12 @@ export default function AtlasPage() {
         </div>
       </section>
 
-      {/* Visual Showcase Section (Demonstração Real no WhatsApp) */}
+      {/* Animated Beam Architecture Component Section */}
+      <section className="py-16 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedBeamAtlas />
+      </section>
+
+      {/* Visual Showcase Section */}
       <section className="py-20 bg-gray-50/60 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -174,7 +174,7 @@ export default function AtlasPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center max-w-5xl mx-auto">
-            <div className="bg-white p-4 sm:p-6 rounded-3xl border border-gray-200 shadow-md card-white-shadows overflow-hidden flex flex-col items-center">
+            <div className="bg-white p-4 sm:p-6 rounded-3xl border border-gray-200 shadow-md flex flex-col items-center">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-gray-100 mb-4">
                 <Image
                   src="/images/whatsapp-principal-1.webp"
@@ -187,7 +187,7 @@ export default function AtlasPage() {
               <p className="text-xs text-gray-500 text-center">Atendimento imediato filtrando as principais dúvidas do lead.</p>
             </div>
 
-            <div className="bg-white p-4 sm:p-6 rounded-3xl border border-gray-200 shadow-md card-white-shadows overflow-hidden flex flex-col items-center">
+            <div className="bg-white p-4 sm:p-6 rounded-3xl border border-gray-200 shadow-md flex flex-col items-center">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-gray-100 mb-4">
                 <Image
                   src="/images/whatsapp-principal-2.webp"

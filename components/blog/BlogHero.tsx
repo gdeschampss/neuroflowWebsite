@@ -62,7 +62,7 @@ export const BlogHero = () => {
 
   return (
     <div ref={containerRef} className="relative w-full h-screen bg-white text-[#1F1F1F] flex flex-col justify-between overflow-hidden">
-      
+
       {/* Minimal Top Nav Bar (Requirement Section 14.1) */}
       <div className="relative z-30 max-w-7xl w-full mx-auto px-6 py-6 flex items-center justify-between">
         {/* Left Button: Back to Home */}
@@ -87,7 +87,7 @@ export const BlogHero = () => {
 
       {/* Hero Content & Text Layout (Alinhado à Esquerda & Centralizado Verticalmente) */}
       <div className="relative z-20 flex-1 flex flex-col items-start justify-center max-w-7xl w-full mx-auto px-6 sm:px-12 text-left">
-        
+
         <div className="relative min-h-[220px] flex items-center justify-start w-full max-w-3xl">
           {/* Stage 1 H1 Text */}
           <h1
