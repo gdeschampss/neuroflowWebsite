@@ -24,10 +24,8 @@ export const BlogHero = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=1200',
-          pin: true,
+          end: 'bottom top',
           scrub: 1,
-          anticipatePin: 1,
         },
       });
 
@@ -49,7 +47,12 @@ export const BlogHero = () => {
       );
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      if (typeof window !== 'undefined') {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      }
+    };
   }, []);
 
   const scrollToPosts = (e: React.MouseEvent) => {
@@ -61,7 +64,7 @@ export const BlogHero = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full h-screen bg-white text-[#1F1F1F] flex flex-col justify-between overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-[85vh] sm:h-screen bg-white text-[#1F1F1F] flex flex-col justify-between overflow-hidden">
 
       {/* Top Nav Bar */}
       <div className="relative z-50 max-w-7xl w-full mx-auto px-6 py-6 flex items-center justify-between pointer-events-auto">
