@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -64,14 +65,14 @@ export const BlogHero = () => {
 
       {/* Top Nav Bar */}
       <div className="relative z-50 max-w-7xl w-full mx-auto px-6 py-6 flex items-center justify-between pointer-events-auto">
-        {/* Left Button: Directs to https://www.ianeuroflow.com.br/ */}
-        <a
-          href="https://www.ianeuroflow.com.br/"
+        {/* Left Button: Navigates cleanly to Root Home Page */}
+        <Link
+          href="/"
           className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-white/95 border border-slate-200 shadow-sm text-sm font-bold text-[#1F1F1F] hover:text-[#03AD97] hover:border-[#03AD97] hover:shadow-md transition-all cursor-pointer relative z-50"
         >
           <ArrowLeft className="w-4 h-4 text-[#03AD97]" />
           <span>Voltar para Home</span>
-        </a>
+        </Link>
 
         {/* Right Button: Direct Access to Content/Blog Grid */}
         <a
