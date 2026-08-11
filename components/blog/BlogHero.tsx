@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -65,14 +64,14 @@ export const BlogHero = () => {
 
       {/* Top Nav Bar */}
       <div className="relative z-50 max-w-7xl w-full mx-auto px-6 py-6 flex items-center justify-between pointer-events-auto">
-        {/* Left Button: Functional Back to Home */}
-        <Link
-          href="/"
+        {/* Left Button: Directs to https://www.ianeuroflow.com.br/ */}
+        <a
+          href="https://www.ianeuroflow.com.br/"
           className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-white/95 border border-slate-200 shadow-sm text-sm font-bold text-[#1F1F1F] hover:text-[#03AD97] hover:border-[#03AD97] hover:shadow-md transition-all cursor-pointer relative z-50"
         >
           <ArrowLeft className="w-4 h-4 text-[#03AD97]" />
           <span>Voltar para Home</span>
-        </Link>
+        </a>
 
         {/* Right Button: Direct Access to Content/Blog Grid */}
         <a
@@ -116,17 +115,17 @@ export const BlogHero = () => {
 
       </div>
 
-      {/* Hero Background Image - Mais aparente com efeito de blur suave */}
+      {/* Hero Background Image - 100% Nítida e Visível sem Blur */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
           src="/images/blog-hero-section.webp"
           alt="Blog Hero Background"
           fill
-          className="object-cover object-right md:object-center opacity-85 blur-[3px] scale-105"
+          className="object-cover object-right md:object-center opacity-100"
           priority
         />
-        {/* Soft gradient overlay for high contrast text readability while keeping image visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-white/20" />
+        {/* Soft subtle gradient overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent" />
       </div>
 
     </div>
