@@ -91,6 +91,33 @@
   }
 }
 
+/* Text Shimmer Effect (Inspired by @ibelick/components/text-shimmer) */
+@keyframes textShimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    110deg,
+    #03AD97 0%,
+    #03AD97 40%,
+    #ffffff 50%,
+    #03AD97 60%,
+    #03AD97 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: textShimmer 2.2s infinite linear;
+}
+
 .animate-text-glow {
   display: inline-block;
   animation: textGlow 3.5s ease-in-out infinite;
