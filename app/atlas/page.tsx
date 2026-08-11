@@ -1,64 +1,44 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button, FORM_URL, WHATSAPP_URL } from '@/components/ui/Button';
 import { SerifAccent } from '@/components/ui/SerifAccent';
 import { AnimatedBeamAtlas } from '@/components/atlas/AnimatedBeamAtlas';
-import { Bot, MessageCircle, Clock, ShieldCheck, Zap, CheckCircle2, UserCheck, ArrowRight, Sparkles } from 'lucide-react';
+import { Bot, CheckCircle2, Clock, UserCheck, Zap, ExternalLink } from 'lucide-react';
+
+const ATLAS_PLATFORM_URL = 'https://atlas-navy-ten.vercel.app/';
 
 export default function AtlasPage() {
-  const [activeTab, setActiveTab] = useState<'qualification' | 'support' | 'booking'>('qualification');
-
-  const chatScenarios = {
-    qualification: [
-      { sender: 'user', time: '23:14', text: 'Olá! Vi o anúncio de vocês. Qual o valor da consultoria para minha clínica?' },
-      { sender: 'atlas', time: '23:14', text: 'Olá! Sou o Atlas, especialista virtual da empresa. Para te passar o orçamento exato, quantos médicos atendem na sua clínica hoje?' },
-      { sender: 'user', time: '23:15', text: 'Temos 4 médicos e 2 secretárias.' },
-      { sender: 'atlas', time: '23:15', text: 'Perfeito! Para o seu porte, o plano recomendado atende perfeitamente. Gostaria de agendar uma demonstração de 15 min amanhã às 10h ou 14h com nosso consultor?' },
-    ],
-    support: [
-      { sender: 'user', time: '02:30', text: 'Qual o horário de atendimento no sábado e onde fica o estacionamento?' },
-      { sender: 'atlas', time: '02:30', text: 'Abertos no sábado das 08h às 13h! O estacionamento conveniado fica na Rua das Flores, 120 (cortesia para clientes).' },
-      { sender: 'user', time: '02:31', text: 'Excelente, obrigado!' },
-      { sender: 'atlas', time: '02:31', text: 'Por nada! Qualquer outra dúvida estou por aqui 24 horas por dia. Boas vindas!' },
-    ],
-    booking: [
-      { sender: 'user', time: '19:45', text: 'Quero agendar uma visita técnica para esta semana.' },
-      { sender: 'atlas', time: '19:45', text: 'Com certeza! Tenho horário disponível nesta Quinta às 14:30h ou Sexta às 09h. Qual prefere?' },
-      { sender: 'user', time: '19:46', text: 'Quinta às 14:30h fica ótimo.' },
-      { sender: 'atlas', time: '19:46', text: 'Agendado com sucesso! Enviei a confirmação para o seu e-mail e nosso técnico estará no local. Até lá!' },
-    ],
-  };
-
   return (
     <div className="bg-white text-[#1F1F1F]">
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-emerald-50/50 to-white">
+      <section className="relative pt-32 pb-16 bg-gradient-to-b from-emerald-50/40 via-white to-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
             {/* Left Content */}
-            <div className="lg:col-span-7 flex flex-col items-start pt-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-[#03AD97] text-xs font-bold mb-6 border border-emerald-100">
-                <Bot className="w-4 h-4" /> ATLAS — SDR INTELIGENTE VIA WHATSAPP
+            <div className="lg:col-span-6 flex flex-col items-start">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-[#03AD97] text-xs font-bold mb-6 border border-emerald-100/80 shadow-2xs">
+                <Bot className="w-4 h-4 text-[#03AD97]" />
+                <span>ATLAS — SDR INTELIGENTE VIA WHATSAPP</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6 text-[#1F1F1F]">
                 Seu melhor vendedor atende em <SerifAccent>segundos</SerifAccent>, 24h por dia.
               </h1>
 
-              <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
                 O Atlas é o agente de IA especializado em WhatsApp. Ele qualifica leads, responde dúvidas sobre seu produto, quebra objeções e agenda reuniões diretamente no seu CRM sem deixar nenhuma mensagem sem resposta.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
-                <Button href={FORM_URL} size="lg" showArrow>
-                  Testar o Atlas na Prática
+                <Button href={ATLAS_PLATFORM_URL} target="_blank" size="lg" showArrow className="shadow-lg shadow-emerald-500/20">
+                  Acessar Plataforma Atlas
                 </Button>
-                <Button href={WHATSAPP_URL} variant="outline" size="lg">
+                <Button href={WHATSAPP_URL} target="_blank" variant="outline" size="lg">
                   Falar via WhatsApp
                 </Button>
               </div>
@@ -75,192 +55,102 @@ export default function AtlasPage() {
               </div>
             </div>
 
-            {/* Right Chat Mockup */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-[380px] bg-gray-900 rounded-[36px] p-4 shadow-2xl border-4 border-gray-800">
-                <div className="w-32 h-4 bg-gray-800 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-full bg-gray-700" />
-                </div>
-
-                <div className="bg-[#075E54] text-white p-3 rounded-t-2xl flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#03AD97] flex items-center justify-center font-bold text-sm">
-                    A
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold flex items-center gap-1">
-                      Atlas SDR (Sua Empresa)
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    </div>
-                    <div className="text-[10px] text-emerald-100">online agora • IA 24/7</div>
-                  </div>
-                </div>
-
-                <div className="flex gap-1 p-2 bg-gray-800 text-[11px] font-medium text-gray-300">
-                  <button
-                    onClick={() => setActiveTab('qualification')}
-                    className={`flex-1 py-1 rounded transition-colors ${activeTab === 'qualification' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
-                      }`}
-                  >
-                    Qualificação
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('support')}
-                    className={`flex-1 py-1 rounded transition-colors ${activeTab === 'support' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
-                      }`}
-                  >
-                    Atendimento
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('booking')}
-                    className={`flex-1 py-1 rounded transition-colors ${activeTab === 'booking' ? 'bg-[#03AD97] text-white font-bold' : 'hover:bg-gray-700'
-                      }`}
-                  >
-                    Agendamento
-                  </button>
-                </div>
-
-                <div className="bg-[#E5DDD5] p-3 h-[320px] overflow-y-auto space-y-3 font-sans text-xs">
-                  {chatScenarios[activeTab].map((msg, i) => (
-                    <div
-                      key={i}
-                      className={`flex flex-col max-w-[85%] ${msg.sender === 'user' ? 'ml-auto items-end' : 'mr-auto items-start'
-                        }`}
-                    >
-                      <div
-                        className={`p-2.5 rounded-2xl shadow-sm text-gray-800 ${msg.sender === 'user'
-                            ? 'bg-[#DCF8C6] rounded-tr-none'
-                            : 'bg-white rounded-tl-none border border-gray-200'
-                          }`}
-                      >
-                        {msg.text}
-                        <span className="block text-[9px] text-gray-400 text-right mt-1">
-                          {msg.time}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-gray-800 p-2 rounded-b-2xl flex items-center gap-2 text-xs text-gray-400">
-                  <div className="flex-1 bg-gray-700 py-1.5 px-3 rounded-full text-gray-300">
-                    Digite uma mensagem...
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-[#03AD97] text-white flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </div>
+            {/* Right: ChatGPT Diagram Workflow Image (Substitui o celular) */}
+            <div className="lg:col-span-6 flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="relative w-full rounded-3xl overflow-hidden bg-white p-3 sm:p-4 border border-slate-200/90 shadow-2xl hover:border-[#03AD97]/40 transition-all duration-300"
+              >
+                <Image
+                  src="/images/atlas-workflow.png"
+                  alt="Fluxo de Atendimento e Automação do Atlas SDR"
+                  width={900}
+                  height={600}
+                  className="w-full h-auto object-contain rounded-2xl"
+                  priority
+                />
+              </motion.div>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* Animated Beam Architecture Component Section */}
-      <section className="py-16 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Resumed Architecture Component */}
+      <section className="py-12 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedBeamAtlas />
       </section>
 
-      {/* Visual Showcase Section */}
-      <section className="py-20 bg-gray-50/60 border-b border-gray-100">
+      {/* Pain Points Resolved (Resumido & Direto) */}
+      <section className="py-16 bg-slate-50/60 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mb-4">
-              Interface Real do Atlas no WhatsApp
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1F1F1F] mb-3">
+              Por que sua operação precisa do Atlas hoje
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg">
-              Veja como o Atlas atende seus clientes diretamente na tela do aplicativo, de forma natural, rápida e eficiente.
+            <p className="text-gray-600 text-sm sm:text-base font-medium">
+              Elimine gargalos de atendimento e multiplique sua taxa de conversão no WhatsApp.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center max-w-5xl mx-auto">
-            <div className="bg-white p-4 sm:p-6 rounded-3xl border border-gray-200 shadow-md flex flex-col items-center">
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-gray-100 mb-4">
-                <Image
-                  src="/images/whatsapp-principal-1.webp"
-                  alt="Atlas SDR WhatsApp Atendimento Real 1"
-                  fill
-                  className="object-contain"
-                />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
+              <div className="w-10 h-10 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center font-bold mb-4">
+                <Clock className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-bold text-[#1F1F1F] mb-1">Qualificação & Resposta Instantânea</h3>
-              <p className="text-xs text-gray-500 text-center">Atendimento imediato filtrando as principais dúvidas do lead.</p>
-            </div>
-
-            <div className="bg-white p-4 sm:p-6 rounded-3xl border border-gray-200 shadow-md flex flex-col items-center">
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-gray-100 mb-4">
-                <Image
-                  src="/images/whatsapp-principal-2.webp"
-                  alt="Atlas SDR WhatsApp Atendimento Real 2"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-[#1F1F1F] mb-1">Agendamento & Envio de Propostas</h3>
-              <p className="text-xs text-gray-500 text-center">Direcionamento do cliente pronto para a reunião com a equipe comercial.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pain Points Resolved */}
-      <section className="py-20 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mb-4">
-              Dores que o Atlas resolve na sua operação
-            </h2>
-            <p className="text-gray-600">
-              Veja o impacto imediato na produtividade da sua equipe comercial.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-3xl bg-gray-50 border border-gray-200">
-              <div className="w-12 h-12 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center font-bold mb-6">
-                <Clock className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-[#1F1F1F] mb-3">Leads perdidos à noite</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                68% dos clientes navegam e enviam dúvidas fora do horário comercial. O Atlas responde em 3 segundos às 02h da manhã.
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2">Atendimento Noturno 24/7</h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+                68% dos contatos chegam fora do horário comercial. O Atlas responde em segundos em qualquer horário.
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-gray-50 border border-gray-200">
-              <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold mb-6">
-                <UserCheck className="w-6 h-6" />
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
+              <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold mb-4">
+                <UserCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-[#1F1F1F] mb-3">Falta de filtro comercial</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Seus vendedores perdem tempo com curioso sem orçamento. O Atlas faz o filtro prévio e entrega só o lead pronto.
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2">Filtro Inteligente de Leads</h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+                Qualifica a intenção do cliente e repassa apenas oportunidades quentes para seus vendedores humanos.
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-gray-50 border border-gray-200">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-[#03AD97] flex items-center justify-center font-bold mb-6">
-                <Zap className="w-6 h-6" />
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-[#03AD97] flex items-center justify-center font-bold mb-4">
+                <Zap className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-[#1F1F1F] mb-3">Escala ilimitada de atendimento</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Receba 10 ou 10.000 mensagens no mesmo dia sem precisar contratar 50 novos atendentes ou pagar horas extras.
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2">Escala sem Limites</h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+                Atenda 10 ou 10.000 contatos simultâneos sem aumentar custos fixos com equipe.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-emerald-50/50">
+      {/* Direct Link CTA Card Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mb-6">
-            Pronto para colocar o Atlas para rodar na sua empresa?
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-            Configuração completa de 3 a 7 dias úteis com suporte dedicado.
-          </p>
-          <Button href={FORM_URL} size="lg" showArrow>
-            Preencher Formulário de Implementação
-          </Button>
+          <div className="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800 space-y-6">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
+              Pronto para testar o Atlas na sua empresa?
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto font-sans">
+              Acesse a plataforma oficial do Atlas e veja a automação de inteligência em ação.
+            </p>
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={ATLAS_PLATFORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#03AD97] text-white text-sm font-bold shadow-lg hover:bg-[#028F7C] transition-all"
+              >
+                <span>Acessar Plataforma Atlas (atlas-navy-ten.vercel.app)</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
