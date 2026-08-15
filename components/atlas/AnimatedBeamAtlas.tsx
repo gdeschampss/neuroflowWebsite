@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export const AnimatedBeamAtlas = () => {
@@ -23,67 +24,80 @@ export const AnimatedBeamAtlas = () => {
           </p>
         </div>
 
-        {/* 2 Main Side-by-Side Divs */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Single Unified Card with 2 Sides (Support Card Style) */}
+        <div className="bg-white rounded-3xl border border-gray-200/80 p-6 sm:p-10 lg:p-12 shadow-xs hover:border-[#03AD97]/30 transition-all">
           
-          {/* Left Card - Qualificação & Agendamento */}
-          <div className="bg-white rounded-2xl border border-gray-200/90 p-6 flex flex-col justify-between shadow-xs hover:border-[#03AD97]/40 transition-all">
-            <div>
-              {/* Pure white image container without any grey box */}
-              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-white mb-6">
+          {/* 2 Columns inside the single card */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start pb-8 border-b border-gray-100">
+            
+            {/* Left Side */}
+            <div className="flex flex-col">
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-white mb-6"
+              >
                 <Image
                   src="/images/whatsapp-principal-2.webp"
-                  alt="Atlas Qualificação & Respostas no WhatsApp"
+                  alt="Personalizado e treinado para sua empresa"
                   fill
                   className="object-contain p-0"
                 />
-              </div>
-              <h3 className="text-xl font-bold text-[#1F1F1F]">Qualificação & Agendamento Instantâneo</h3>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed font-sans">
-                O Atlas tira dúvidas sobre seu serviço, verifica disponibilidade e realiza agendamentos na agenda oficial sem intervenção humana.
+              </motion.div>
+
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#1F1F1F] tracking-tight mb-3">
+                Personalizado e treinado para sua empresa
+              </h3>
+
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-sans font-medium">
+                O Atlas tira dúvidas sobre seu serviço, verifica disponibilidade e realiza agendas ou qualificação de venda, ele não é um chatbot. Ele é uma Inteligência Artificial própria para sua empresa.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-[#03AD97] font-sans flex items-center gap-1">
-                <CheckCircle2 className="w-4 h-4" /> 24 Horas por Dia
-              </span>
-              <a
-                href="/atlas"
-                className="inline-flex items-center gap-1 text-xs font-bold text-gray-800 hover:text-[#03AD97] font-sans"
-              >
-                Saber Mais <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
 
-          {/* Right Card - Atendimento & Fechamento */}
-          <div className="bg-white rounded-2xl border border-gray-200/90 p-6 flex flex-col justify-between shadow-xs hover:border-[#03AD97]/40 transition-all">
-            <div>
-              {/* Pure white image container without any grey box */}
-              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-white mb-6">
+            {/* Right Side */}
+            <div className="flex flex-col">
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-white mb-6"
+              >
                 <Image
                   src="/images/whatsapp-principal-1.webp"
-                  alt="Atlas SDR Engine Atendimento"
+                  alt="Automatizando seu Atendimento WhatsApp"
                   fill
                   className="object-contain p-0"
                 />
-              </div>
-              <h3 className="text-xl font-bold text-[#1F1F1F]">Atendimento Inteligente & SDR</h3>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed font-sans">
-                Respostas rápidas e precisas no WhatsApp em menos de 5 segundos, filtrando curiosos e conduzindo apenas os leads prontos para o fechamento.
+              </motion.div>
+
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#1F1F1F] tracking-tight mb-3">
+                Automatizando seu Atendimento WhatsApp
+              </h3>
+
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-sans font-medium">
+                Ele opera 24 horas por dia, sem descanso, perfeito para escala e aquecimento de Lead. Filtrando curiosos e conduzindo apenas os leads prontos para o fechamento.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-[#03AD97] font-sans flex items-center gap-1">
-                <CheckCircle2 className="w-4 h-4" /> Resposta em &lt; 5s
-              </span>
-              <a
-                href="/atlas"
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#1F1F1F] hover:text-[#03AD97] font-sans"
-              >
-                Ver Demonstração <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
+
+          </div>
+
+          {/* Single Footer Row with Saiba Mais */}
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-xs sm:text-sm font-bold text-[#03AD97] font-sans flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#03AD97]" />
+              Agente de IA NeuroFlow
+            </span>
+
+            <a
+              href="/atlas"
+              className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#03AD97] hover:text-[#028F7C] transition-all group font-sans"
+            >
+              <span>Saiba mais</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
 
         </div>

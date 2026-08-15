@@ -42,20 +42,22 @@ export const Navbar = () => {
 
   const produtos = [
     {
-      name: 'Atlas (SDR IA)',
-      description: 'Atendimento e qualificação automatizada no WhatsApp 24/7.',
+      name: 'Agente de IA no whatsapp',
+      description: 'Tenha Atlas no seu atendimento, trabalhando 24h qualificando suas vendas.',
       href: '/atlas',
-      logo: '/images/logo-atlas.webp',
-      badge: 'Principal',
-      badgeColor: 'bg-emerald-50 text-[#03AD97] border border-emerald-200/60'
+      logo: '/images/logo-atlas-circular.webp'
     },
     {
-      name: 'Neuroweb',
-      description: 'Portais e landing pages de altíssima conversão com IA.',
+      name: 'Sites',
+      description: 'Aumente sua presença digital',
       href: '/neuroweb',
-      logo: '/images/logo-neuroweb.webp',
-      badge: 'High-Perf',
-      badgeColor: 'bg-sky-50 text-sky-600 border border-sky-200/60'
+      logo: '/images/logo-neuroweb.webp'
+    },
+    {
+      name: 'Automações',
+      description: 'Acelerando processos e escalando com estratégia',
+      href: '/automacoes',
+      logo: '/images/logo-automacao.webp'
     }
   ];
 
@@ -97,20 +99,20 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
         {/* Brand Logo with Elms Sans Font */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 overflow-hidden rounded-xl bg-white/90 border border-gray-200 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-xs">
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="relative w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
             <Image
               src="/images/logo.webp"
-              alt="NeuroFlow Logo"
-              width={36}
-              height={36}
-              className="object-contain"
+              alt="Neuroflow Logo"
+              width={32}
+              height={32}
+              className="w-full h-full object-contain"
               priority
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-logo font-extrabold text-2xl tracking-tight text-[#1F1F1F]">
-              Neuro<span className="text-[#03AD97]">Flow</span>
+            <span className="font-logo font-normal text-2xl tracking-tight text-[#2E5E55]">
+              Neuroflow
             </span>
           </div>
         </Link>
@@ -137,7 +139,7 @@ export const Navbar = () => {
           >
             <button
               className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                activeDropdown === 'produtos' || pathname.startsWith('/atlas') || pathname.startsWith('/neuroweb')
+                activeDropdown === 'produtos' || pathname.startsWith('/atlas') || pathname.startsWith('/neuroweb') || pathname.startsWith('/automacoes')
                   ? 'bg-gray-100 text-[#03AD97] shadow-xs font-semibold'
                   : 'text-[#1F1F1F]/80 hover:text-[#1F1F1F] hover:bg-gray-100/60'
               }`}
@@ -178,11 +180,6 @@ export const Navbar = () => {
                           <span className="text-sm font-semibold text-[#1F1F1F] group-hover:text-[#03AD97] transition-colors">
                             {item.name}
                           </span>
-                          {item.badge && (
-                            <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${item.badgeColor}`}>
-                              {item.badge}
-                            </span>
-                          )}
                         </div>
                         <p className="text-xs text-gray-500 line-clamp-2 mt-0.5 leading-snug">
                           {item.description}
@@ -298,18 +295,18 @@ export const Navbar = () => {
         <div className="md:hidden fixed inset-0 z-50 bg-white p-6 flex flex-col justify-between animate-in fade-in duration-200 overflow-y-auto">
           <div>
             <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-              <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
-                <div className="relative w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center">
+              <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2.5">
+                <div className="relative w-8 h-8 flex items-center justify-center">
                   <Image
                     src="/images/logo.webp"
-                    alt="NeuroFlow Logo"
+                    alt="Neuroflow Logo"
                     width={32}
                     height={32}
-                    className="object-contain"
+                    className="w-full h-full object-contain"
                   />
                 </div>
-                <span className="font-logo font-extrabold text-2xl tracking-tight text-[#1F1F1F]">
-                  Neuro<span className="text-[#03AD97]">Flow</span>
+                <span className="font-logo font-normal text-2xl tracking-tight text-[#2E5E55]">
+                  Neuroflow
                 </span>
               </Link>
               <button

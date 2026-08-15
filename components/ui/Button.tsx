@@ -4,7 +4,9 @@ import { ArrowRight } from 'lucide-react';
 
 export const FORM_URL =
   'https://formulario-neuroflow-gumsak42b-easygolden-s-projects.vercel.app/';
-export const WHATSAPP_URL = 'https://wa.me/5547999619049';
+export const WHATSAPP_URL = 'https://wa.me/554796732918';
+export const WHATSAPP_PHONE = '+55 47 9673-2918';
+export const LINKEDIN_URL = 'http://linkedin.com/company/ianeuroflow/';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';

@@ -10,6 +10,8 @@ const imageMappings = [
   { src: 'logoImagens/logoNeuroWeb.png', dest: 'public/images/logo-neuroweb.webp' },
   { src: 'logoImagens/Design sem nome (7).png', dest: 'public/images/logo-design-alt.webp' },
   { src: 'componetsImg/atlas.png', dest: 'public/images/atlas.webp' },
+  { src: 'componetsImg/atlasLogo_circular.png', dest: 'public/images/logo-atlas-circular.webp' },
+  { src: 'componetsImg/automacaoLogo.png', dest: 'public/images/logo-automacao.webp' },
   { src: 'componetsImg/contentesWhatsAppPriuncipal.png', dest: 'public/images/whatsapp-principal.webp' },
   { src: 'componetsImg/contentesWhatsAppPriuncipal (1).png', dest: 'public/images/whatsapp-principal-1.webp' },
   { src: 'componetsImg/contentesWhatsAppPriuncipal (2).png', dest: 'public/images/whatsapp-principal-2.webp' },

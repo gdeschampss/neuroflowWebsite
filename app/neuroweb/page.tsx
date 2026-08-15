@@ -3,137 +3,148 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Button, FORM_URL } from '@/components/ui/Button';
-import { SerifAccent } from '@/components/ui/SerifAccent';
-import { Globe, Gauge, Code2, Smartphone, ShieldCheck, CheckCircle2, ArrowRight, Zap, Play } from 'lucide-react';
+import { SupportSection } from '@/components/home/SupportSection';
+import { FinalCta } from '@/components/home/FinalCta';
+import ThreeDMarquee from '@/components/ui/3d-marquee';
 
 export default function NeuroWebPage() {
-  const steps = [
-    { number: '01', title: 'Briefing & Estratégia de Conversão', desc: 'Entendemos o seu posicionamento e definimos a arquitetura de informação focada em gerar leads.' },
-    { number: '02', title: 'Design Autoral no Figma', desc: 'Criamos a interface do zero, alinhada à sua identidade visual, sem usar templates prontos de banco.' },
-    { number: '03', title: 'Desenvolvimento em Next.js 15', desc: 'Codificamos com a tecnologia mais rápida do mercado para garantir carregamento instantâneo.' },
-    { number: '04', title: 'Auditoria de Performance 100/100', desc: 'Ajustamos métricas de Core Web Vitals para obter notas máximas no Google Lighthouse.' },
-    { number: '05', title: 'Lançamento & Suporte Contínuo', desc: 'Publicação na infraestrutura Vercel Edge com garantia de uptime e atualizações contínuas.' },
+  const creativeImages = [
+    '/craitivos/Captura de tela 2026-08-11 024941.png',
+    '/craitivos/Captura de tela 2026-08-11 025024.png',
+    '/craitivos/Captura de tela 2026-08-11 030103.png',
+    '/craitivos/Catalis Website Page Template for Webflow.jpg',
+    '/craitivos/Clean orange website design with iPhone mockup.jfif',
+    '/craitivos/Design sem nome (9).png',
+    '/craitivos/Hero section for a clothing e-commerce store _ UI_UX _ Homepage web design.jfif',
+    '/craitivos/download (28).jpg',
+  ];
+
+  const cards = [
+    {
+      type: 'text',
+      badge: 'Performance Extrema',
+      title: 'Google Lighthouse 100/100 & Carregamento Instantâneo',
+      text: 'Desenvolvido com Next.js 15, SSR e infraestrutura Vercel Edge. Seu site carrega em milissegundos, garantindo a melhor pontuação de SEO e retenção de leads.',
+    },
+    {
+      type: 'marquee',
+      title: 'Portfólio & Criativos',
+    },
+    {
+      type: 'text',
+      badge: 'Design Autoral',
+      title: 'Zero Templates Prontos. 100% Exclusivo.',
+      text: 'Criamos cada interface do zero no Figma, alinhada com a identidade e posicionamento da sua empresa. Sem temas genéricos ou plugins pesados de WordPress.',
+    },
+    {
+      type: 'image',
+      src: '/images/products/neuroweb-comp.webp',
+      alt: 'Componentes NeuroWeb High-End',
+    },
+    {
+      type: 'text',
+      badge: 'Foco em Conversão',
+      title: 'Arquitetura Pensada para Gerar Vendas',
+      text: 'Estrutura de copywriting refinada, hierarquia visual clara e chamadas para ação estratégicas para transformar visitantes casuais em clientes qualificados.',
+    },
+    {
+      type: 'image',
+      src: '/images/products/neuroweb-mockup.webp',
+      alt: 'Mockup de Website High-End NeuroWeb',
+    },
   ];
 
   return (
     <div className="bg-white text-[#1F1F1F]">
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100">
+      {/* Header Section (Same structure as Sobre page) */}
+      <section className="pt-36 pb-12 sm:pt-44 sm:pb-16 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-gray-100 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
             
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#03AD97]/10 border border-[#03AD97]/30 text-[#03AD97] text-xs font-bold mb-6">
-                <Globe className="w-4 h-4" />
-                NEUROWEB — DESENVOLVIMENTO WEB HIGH-END
-              </div>
+            {/* Title with Text Shimmer Effect */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6 text-[#1F1F1F]"
+            >
+              NeuroWeb — <span className="text-shimmer">Websites High-End</span>
+            </motion.h1>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-                Sites institucionais que posicionam como <SerifAccent>líder</SerifAccent>.
-              </h1>
-
-              <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
-                Desenvolvemos landing pages e portais corporativos ultrarrápidos sob medida. Esqueça o WordPress lento e templates genéricos. Entregamos código limpo em Next.js 15 focado em alta conversão.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
-                <Button href={FORM_URL} size="lg" showArrow>
-                  Quero um Site Assim
-                </Button>
-                <Button href="#processo" variant="outline" size="lg" isExternal={false}>
-                  Ver Nosso Processo
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-6 text-xs font-semibold text-gray-500">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#03AD97]" />
-                  Google Lighthouse 100/100
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#03AD97]" />
-                  Zero Template Pronto
-                </span>
-              </div>
-            </div>
-
-            {/* Video GIF Showcase Frame */}
-            <div className="lg:col-span-6 flex justify-center">
-              <div className="w-full bg-slate-900 p-3 sm:p-4 rounded-3xl shadow-2xl border border-slate-800 relative overflow-hidden group">
-                <div className="flex items-center justify-between px-3 py-2 border-b border-slate-800 mb-3 text-xs text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <span className="ml-2 font-mono text-[11px]">neuroweb-showcase.mp4</span>
-                  </div>
-                  <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/30">
-                    High Performance
-                  </span>
-                </div>
-
-                <div className="relative rounded-2xl overflow-hidden aspect-video bg-slate-950">
-                  <video
-                    src="/videos/neuroweb-showcase.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg sm:text-2xl text-gray-600 font-medium leading-relaxed font-sans max-w-2xl"
+            >
+              Sites institucionais e landing pages ultrarrápidas construídas sob medida em Next.js 15
+            </motion.p>
 
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section id="processo" className="py-24 bg-white">
+      {/* Unified Section Card (3 Text Cards + 3 Visual Cards) */}
+      <section className="py-12 sm:py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mb-4">
-              Nosso Processo de Trabalho em 5 Etapas
-            </h2>
-            <p className="text-gray-600">
-              Metodologia transparente com prazos definidos do início ao fim.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {steps.map((step) => (
-              <div key={step.number} className="p-6 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col justify-between">
-                <div>
-                  <span className="text-3xl font-extrabold text-[#03AD97] font-mono block mb-3">
-                    {step.number}
-                  </span>
-                  <h3 className="text-base font-bold text-[#1F1F1F] mb-2">{step.title}</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">{step.desc}</p>
-                </div>
-              </div>
+          
+          <div className="rounded-3xl border border-gray-200 bg-white overflow-hidden shadow-xs grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+            
+            {cards.map((card, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="relative flex flex-col justify-between overflow-hidden bg-white hover:bg-gray-50/40 transition-colors group"
+              >
+                {card.type === 'text' ? (
+                  <div className="p-8 sm:p-10 flex flex-col justify-between h-full min-h-[300px] sm:min-h-[360px]">
+                    <div>
+                      {card.badge && (
+                        <span className="inline-block text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-50 text-[#03AD97] border border-emerald-100/80 mb-6 w-fit">
+                          {card.badge}
+                        </span>
+                      )}
+                      <h3 className="text-2xl font-extrabold text-[#1F1F1F] tracking-tight mb-4 group-hover:text-[#03AD97] transition-colors leading-snug">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-600 font-medium leading-relaxed font-sans">
+                        {card.text}
+                      </p>
+                    </div>
+                  </div>
+                ) : card.type === 'marquee' ? (
+                  /* Marquee Carousel Card */
+                  <div className="relative w-full h-full min-h-[300px] sm:min-h-[360px] overflow-hidden bg-slate-950 flex flex-col items-center justify-center p-4">
+                    <ThreeDMarquee images={creativeImages} className="h-full w-full" />
+                  </div>
+                ) : (
+                  /* Pure Image Card */
+                  <div className="relative w-full h-full min-h-[300px] sm:min-h-[360px] overflow-hidden bg-gray-100">
+                    <Image
+                      src={card.src!}
+                      alt={card.alt!}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                )}
+              </motion.div>
             ))}
+
           </div>
+
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-6">
-            Sua empresa merece um site de alto padrão.
-          </h2>
-          <p className="text-slate-300 mb-8 max-w-xl mx-auto">
-            Receba um orçamento detalhado e uma análise da sua presença digital atual sem compromisso.
-          </p>
-          <Button href={FORM_URL} size="lg" showArrow>
-            Solicitar Orçamento NeuroWeb
-          </Button>
-        </div>
-      </section>
+      {/* Support Section */}
+      <SupportSection />
 
+      {/* Final CTA */}
+      <FinalCta />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { AboutSection } from '@/components/home/AboutSection';
 import { PillarsSection } from '@/components/home/PillarsSection';
 import { HowItWorks } from '@/components/home/HowItWorks';
 import { IntegrationsGrid } from '@/components/home/IntegrationsGrid';
+import { SupportSection } from '@/components/home/SupportSection';
 import { FaqAccordion } from '@/components/home/FaqAccordion';
 import { FinalCta } from '@/components/home/FinalCta';
 
@@ -28,6 +29,7 @@ export default function Home() {
       <PillarsSection />
       <HowItWorks />
       <IntegrationsGrid />
+      <SupportSection />
 
       <FaqAccordion />
       <FinalCta />

@@ -42,6 +42,14 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     type: 'website',
   },
+  icons: {
+    icon: [
+      { url: '/images/logo3d.png' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/images/logo3d.png',
+    apple: '/images/logo3d.png',
+  },
 };
 
 export default function RootLayout({

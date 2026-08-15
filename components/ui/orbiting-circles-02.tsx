@@ -8,25 +8,28 @@ const orbits = [
     size: "w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px]",
     duration: 20,
     icons: [
-      { src: "https://img.icons8.com/color/96/whatsapp--v1.png", alt: "WhatsApp", angle: -60 },
-      { src: "https://img.icons8.com/color/96/chatgpt.png", alt: "ChatGPT", angle: 0 },
-      { src: "https://images.shadcnspace.com/assets/svgs/clude.svg", alt: "Claude", angle: 60 },
+      { src: "https://img.icons8.com/color/96/whatsapp--v1.png", alt: "WhatsApp", angle: 0 },
+      { src: "https://img.icons8.com/color/96/chatgpt.png", alt: "ChatGPT", angle: 120 },
+      { src: "https://images.shadcnspace.com/assets/svgs/clude.svg", alt: "Claude", angle: 240 },
     ],
   },
   {
     size: "w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[540px] md:h-[540px]",
     duration: 26,
     icons: [
-      { src: "https://img.icons8.com/color/96/instagram-new.png", alt: "Instagram", angle: 0 },
-      { src: "https://images.shadcnspace.com/assets/svgs/gemini.svg", alt: "Gemini", angle: -90 },
+      { src: "https://images.shadcnspace.com/assets/svgs/gemini.svg", alt: "Gemini", angle: 30 },
+      { src: "https://cdn.simpleicons.org/n8n/FF6C37", alt: "n8n", angle: 150 },
+      { src: "https://img.icons8.com/color/96/instagram-new.png", alt: "Instagram", angle: 270 },
     ],
   },
   {
     size: "w-[360px] h-[360px] sm:w-[480px] sm:h-[480px] md:w-[660px] md:h-[660px]",
     duration: 32,
     icons: [
-      { src: "https://img.icons8.com/color/96/gmail-new.png", alt: "Gmail", angle: -60 },
-      { src: "https://img.icons8.com/color/96/google-calendar--v2.png", alt: "Google Calendar", angle: 60 },
+      { src: "https://img.icons8.com/color/96/domain.png", alt: "Website", angle: 0 },
+      { src: "https://img.icons8.com/color/96/linkedin.png", alt: "LinkedIn", angle: 90 },
+      { src: "https://img.icons8.com/color/96/gmail-new.png", alt: "Gmail", angle: 180 },
+      { src: "https://img.icons8.com/color/96/google-calendar--v2.png", alt: "Google Calendar", angle: 270 },
     ],
   },
 ];
@@ -64,14 +67,7 @@ export default function OrbitingCirclesGlobeDemo() {
         const orbitAnim = isCW ? "orbit-cw" : "orbit-ccw";
         const counterAnim = isCW ? "counter-cw" : "counter-ccw";
 
-        const allIcons = [
-          ...orbit.icons,
-          ...orbit.icons.map((ic) => ({
-            ...ic,
-            angle: ic.angle + 180,
-            alt: `${ic.alt}-mirror`,
-          })),
-        ];
+        const allIcons = orbit.icons;
 
         return (
           <div

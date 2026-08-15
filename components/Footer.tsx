@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FORM_URL, WHATSAPP_URL } from '@/components/ui/Button';
-import { ArrowUpRight, MessageCircle, Instagram, Mail, ShieldCheck } from 'lucide-react';
+import { FORM_URL, WHATSAPP_URL, LINKEDIN_URL } from '@/components/ui/Button';
+import { ArrowUpRight, MessageCircle, Instagram, Mail, ShieldCheck, Linkedin } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -11,18 +11,18 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-100">
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 overflow-hidden rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center">
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="w-8 h-8 flex items-center justify-center">
                 <Image
                   src="/images/logo.webp"
-                  alt="NeuroFlow"
-                  width={40}
-                  height={40}
-                  className="object-contain"
+                  alt="Neuroflow"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-extrabold text-2xl tracking-tight text-[#1F1F1F]">
-                Neuro<span className="text-[#03AD97]">Flow</span>
+              <span className="font-logo font-normal text-2xl tracking-tight text-[#2E5E55]">
+                Neuroflow
               </span>
             </Link>
             <p className="text-gray-600 text-sm max-w-sm leading-relaxed">
@@ -50,6 +50,15 @@ export const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-gray-100 text-gray-700 flex items-center justify-center hover:bg-[#03AD97] hover:text-white transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
                 href="mailto:contato@neuroflow.com.br"
                 className="w-10 h-10 rounded-xl bg-gray-100 text-gray-700 flex items-center justify-center hover:bg-[#03AD97] hover:text-white transition-all"
                 aria-label="E-mail"
@@ -74,6 +83,11 @@ export const Footer = () => {
               <li>
                 <Link href="/neuroweb" className="hover:text-[#03AD97] transition-colors flex items-center gap-1.5">
                   NeuroWeb (Sites High-End)
+                </Link>
+              </li>
+              <li>
+                <Link href="/automacoes" className="hover:text-[#03AD97] transition-colors flex items-center gap-1.5">
+                  Automações (Workflows IA)
                 </Link>
               </li>
               <li>

@@ -21,7 +21,7 @@ export const IntegrationsGrid = () => {
               Integração nativa com suas ferramentas do dia a dia
             </h2>
             <p className="text-base sm:text-xl text-[#1F1F1F]/70 mt-4 leading-relaxed font-medium">
-              A IA se conecta à infraestrutura que sua empresa já utiliza.
+              Conecta à infraestrutura que sua empresa já utiliza.
             </p>
           </div>
 

@@ -8,70 +8,71 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-white pt-36 sm:pt-44 pb-20 md:pb-28 min-h-[85vh] flex items-center">
-      {/* Background Image from herosectionimagem.png */}
+    <section className="relative overflow-hidden bg-white pt-32 sm:pt-40 pb-16 md:pb-24 min-h-[75vh] flex items-center">
+      {/* Background Image from backgroundHeroSection.png */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-bg.webp"
+          src="/images/background-hero.webp"
           alt="NeuroFlow Background"
           fill
-          className="object-cover object-center opacity-90"
+          className="object-cover object-center opacity-100"
           priority
         />
-        {/* Subtle overlay gradient to ensure high readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/90" />
+        {/* Soft overlay gradient ensuring both high image visibility and text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="max-w-3xl flex flex-col items-start text-left">
+        <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
 
           {/* H1 Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#1F1F1F] tracking-tight leading-[1.1] mb-6"
+            className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#1F1F1F] tracking-tight leading-tight mb-4 max-w-2xl text-center"
           >
-            Aplicando Inteligência Artificial em <span className="text-shimmer">empresas</span>.
+            Pare de responder no manual.<br />
+            <span className="text-shimmer">Comece a vender no automático</span>
           </motion.h1>
 
           {/* H2 / Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg sm:text-2xl text-[#1F1F1F]/80 font-medium leading-relaxed mb-8 max-w-2xl font-sans"
+            className="text-sm sm:text-lg text-[#1F1F1F]/80 font-medium leading-relaxed mb-6 max-w-xl text-center font-sans"
           >
-            Menos trabalho, mais eficiente, operação rodando sozinho.
+            Automações com IA para Escalar Vendas e Desenvolvimento de Sites.
           </motion.p>
 
           {/* Action CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto mb-8"
           >
-            <Button href={FORM_URL} size="lg" showArrow className="shadow-lg shadow-emerald-500/20">
+            <Button href={FORM_URL} size="md" showArrow className="shadow-lg shadow-emerald-500/20">
               Começar agora
             </Button>
-            <Button href="#ferramentas" variant="outline" size="lg">
+            <Button href="#ferramentas" variant="outline" size="md">
               Nossas ferramentas
             </Button>
           </motion.div>
 
           {/* Trust Badges */}
-          <div className="grid grid-cols-3 gap-3 pt-6 border-t border-gray-200/80 w-full max-w-xl">
-            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-800 font-sans">
-              <CheckCircle2 className="w-4 h-4 text-[#03AD97] shrink-0" />
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-5 border-t border-gray-200/80 w-full max-w-lg">
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-gray-800 font-sans">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#03AD97] shrink-0" />
               <span>Atendimento 24/7</span>
             </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-800 font-sans">
-              <CheckCircle2 className="w-4 h-4 text-[#03AD97] shrink-0" />
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-gray-800 font-sans">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#03AD97] shrink-0" />
               <span>Setup em Dias</span>
             </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-800 font-sans">
-              <CheckCircle2 className="w-4 h-4 text-[#03AD97] shrink-0" />
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-gray-800 font-sans">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#03AD97] shrink-0" />
               <span>Zero Hype, +Vendas</span>
             </div>
           </div>
